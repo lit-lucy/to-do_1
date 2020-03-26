@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block heading%}
+	Hello
+{% endblock %}
+
+{% block tasks %}
+	Hello, {{name}}!
+	<a href="{{ url_for('index') }}">See today's tasks..</a>
+{% endblock %}

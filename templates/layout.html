@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My to do list</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+	</head>
+	<body id="bodybackground">
+		<div class="container">
+			{% block heading %}
+	    	{% endblock%}
+	    	<div class="row justify-content-center">
+	      		<h2>Current tasks</h2>
+	      	</div>
+	    	{% block current %}
+	    	{% endblock%}
+	    	<div class="row justify-content-center">
+	      		<h2>Add new task</h2>
+	      	</div>
+	    	{% block form %}
+			{% endblock%}
+
+			{% block done %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

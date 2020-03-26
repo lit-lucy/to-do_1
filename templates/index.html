@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+
+<div class="container">
+
+{% block heading %}
+			<div class="row justify-content-center">
+	      		<h1>To Do</h1>
+	    	</div>
+{% endblock%}
+
+{% block current %}
+	{% for note in notes %}
+		<div class="row justify-content-center">
+	  		<div class="input-group">
+	  			<span class="form-control">{{ note }}</span> 
+	  			<div class="input-group-append">
+	  				<form action="{{ url_for('delete')}}" method="post">
+						<input type="hidden" name="index" value="{{loop.index0}}">
+						<button class="btn btn-light">Delete</button>
+					</form>
+					<form action="{{ url_for('done')}}" method="post">
+						<input type="hidden" name="done" value="{{loop.index0}}">
+						<button class="btn btn-light">Done</button>
+					</form>
+	  			</div>
+			</div>
+	    </div>
+	{% endfor %}
+{% endblock %}
+
+{% block form %}
+	<div class="row justify-content-center">
+		<form action="{{ url_for('add')}}" method="post">
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<input type="text" name="note" class="form-control">
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-light">Add Note</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}
+
+{% block done %}
+	<div class="row justify-content-center">
+		<h2>Finished tasks</h2>
+	</div>
+		{% for item in finished %}
+				<div class="row justify-content-center">
+	  				<div class="input-group">
+			  			<span class="form-control">{{ item }}</span> 
+			  			<div class="input-group-append">
+			  				<form>
+								<input type="hidden" name="done">
+								<button class="btn btn-light">Delete</button>
+							</form>
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+{% endblock %}
+
+</div>

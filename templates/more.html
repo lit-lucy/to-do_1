@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block heading%}
+	Tomorrow
+{% endblock %}
+
+{% block tasks %}
+
+		<ul>
+			{% for task in tomorrow %}
+				<li>{{ task }}</li>
+			{% endfor %}
+
+		</ul>
+
+		<a href="{{ url_for('index') }}">Go back to today's tasks</a>
+		
+{% endblock%}
+
